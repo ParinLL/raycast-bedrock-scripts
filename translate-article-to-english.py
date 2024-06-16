@@ -11,8 +11,8 @@
 # @raycast.argument1 { "type": "text", "placeholder": "Articles that need to be translated" }
 
 # Documentation:
-# @raycast.author parinll
-# @raycast.authorURL https://raycast.com/parinll
+# @raycast.author Parin Lai
+# @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
 
 import sys
 import boto3

@@ -10,8 +10,8 @@
 # @raycast.argument1 { "type": "text", "placeholder": "Text to be summarized" }
 
 # Documentation:
-# @raycast.author parinll
-# @raycast.authorURL https://raycast.com/parinll
+# @raycast.author Parin Lai
+# @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
 
 import sys
 import boto3
