@@ -1,0 +1,2 @@
+# raycast-bedrock-scripts
+
