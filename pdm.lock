@@ -5,7 +5,17 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:b5eba13efdebb2fe78fb3a828298b2b2bd1b9dca2c3ab69befdef1a58b84ee52"
+content_hash = "sha256:3bce00ff12445f46f15cd04d2ce6c6761b6a80807efc71c9f45f8ae06e267671"
+
+[[package]]
+name = "argparse"
+version = "1.4.0"
+summary = "Python command-line parsing library"
+groups = ["default"]
+files = [
+    {file = "argparse-1.4.0-py2.py3-none-any.whl", hash = "sha256:c31647edb69fd3d465a847ea3157d37bed1f95f19760b11a47aa91c04b666314"},
+    {file = "argparse-1.4.0.tar.gz", hash = "sha256:62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"},
+]
 
 [[package]]
 name = "boto3"

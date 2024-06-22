@@ -2,12 +2,12 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Summarize Taiwanese text with Bedrock
+# @raycast.title Formal text with Bedrock
 # @raycast.mode fullOutput
 
 # Optional parameters:
 # @raycast.icon 🤖
-# @raycast.argument1 { "type": "text", "placeholder": "請輸入需要總結的文章" }
+# @raycast.argument1 { "type": "text", "placeholder": "Text to be Formal" }
 
 # Documentation:
 # @raycast.author Parin Lai
@@ -20,7 +20,7 @@ import json
 def get_summary(text, model_id="anthropic.claude-3-haiku-20240307-v1:0", max_tokens=2048, temperature=1.0):
     client = boto3.client('bedrock-runtime', region_name='us-west-2')
     
-    prompt = f"請以繁體中文總結以下文字:
+    prompt = f"Please help me paraphrase the following text in a formal and logical way:
     ---
     {text}
     ---"
