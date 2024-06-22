@@ -1,18 +1,3 @@
-#!$PWD/.venv/bin/python3
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Summarize Taiwanese text with Bedrock
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 🤖
-# @raycast.argument1 { "type": "text", "placeholder": "請輸入需要總結的文章" }
-
-# Documentation:
-# @raycast.author Parin Lai
-# @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
-
 import argparse
 import boto3
 import json

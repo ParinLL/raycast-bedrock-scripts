@@ -1,18 +1,3 @@
-#!$PWD/.venv/bin/python3
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Formal text with Bedrock
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 🤖
-# @raycast.argument1 { "type": "text", "placeholder": "Text to be Formal" }
-
-# Documentation:
-# @raycast.author Parin Lai
-# @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
-
 import argparse
 import boto3
 import json
@@ -20,10 +5,11 @@ import json
 def get_summary(text, model_id="anthropic.claude-3-haiku-20240307-v1:0", max_tokens=2048, temperature=1.0):
     client = boto3.client('bedrock-runtime', region_name='us-west-2')
     
-    prompt = f"Please help me paraphrase the following text in a formal and logical way:
+    prompt = f"""
+    請翻譯以下文字至繁體中文:
     ---
     {text}
-    ---"
+    ---"""
     
     request = json.dumps({
         "anthropic_version": "bedrock-2023-05-31",

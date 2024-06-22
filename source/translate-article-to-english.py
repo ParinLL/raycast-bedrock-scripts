@@ -1,18 +1,3 @@
-#!$PWD/.venv/bin/python3
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Generate Chinese Meeting Summarize with Bedrock
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 🤖
-# @raycast.argument1 { "type": "text", "placeholder": "請輸入需要總結的會議紀錄" }
-
-# Documentation:
-# @raycast.author Parin Lai
-# @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
-
 import argparse
 import boto3
 import json
@@ -20,7 +5,7 @@ import json
 def get_summary(text, model_id="anthropic.claude-3-haiku-20240307-v1:0", max_tokens=2048, temperature=1.0):
     client = boto3.client('bedrock-runtime', region_name='us-west-2')
     
-    prompt = f"我是 Cloud Support 工程師，請幫我總結以下對話大綱，包含 AWS 資源名稱，並回覆給客戶:
+    prompt = f"Please translate the following text into English:
     ---
     {text}
     ---"
