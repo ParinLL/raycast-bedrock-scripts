@@ -5,10 +5,11 @@ import json
 def get_summary(text, model_id="anthropic.claude-3-haiku-20240307-v1:0", max_tokens=2048, temperature=1.0):
     client = boto3.client('bedrock-runtime', region_name='us-west-2')
     
-    prompt = f"Please translate the following text into English:
+    prompt = f"""
+    Please translate the following text into English:
     ---
     {text}
-    ---"
+    ---"""
     
     request = json.dumps({
         "anthropic_version": "bedrock-2023-05-31",
