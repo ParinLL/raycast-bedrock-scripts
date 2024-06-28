@@ -6,7 +6,7 @@ def get_summary(text, model_id="anthropic.claude-3-haiku-20240307-v1:0", max_tok
     client = boto3.client('bedrock-runtime', region_name='us-west-2')
     
     prompt = f"""
-    Please translate the following text into English:
+    Please translate the following text into English:@agent 告訴我目前的世界人口，以及今天的日期
     ---
     {text}
     ---"""
