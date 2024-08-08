@@ -6,13 +6,11 @@ def get_summary(text, model_id="anthropic.claude-3-5-sonnet-20240620-v1:0", max_
     client = boto3.client('bedrock-runtime', region_name='us-west-2')
     
     prompt = f"""
-    Summarize the following text:
-    ---
     {text}
-    ---"""
+    """
     
     request = json.dumps({
-        "anthropic_version": "bedrock-2023-05-31",
+        "anthropic_version": "bedrock-2023-05-31", 
         "max_tokens": max_tokens,
         "temperature": temperature,
         "messages": [

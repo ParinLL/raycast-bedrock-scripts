@@ -15,7 +15,7 @@
 # @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
 
 source .venv/bin/activate
-python3 source/translate-article-to-english.py ${1// /%20}
+pdm run source/translate-article-to-english.py ${1// /%20}
 deactivate
 
 
