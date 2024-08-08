@@ -14,6 +14,6 @@
 # @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
 
 source .venv/bin/activate
-pdm run source/formal-text-with-bedrock.py ${1// /%20}
+pdm run source/formal-text-with-bedrock.py "${1}"
 deactivate
 

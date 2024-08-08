@@ -14,7 +14,7 @@
 # @raycast.authorURL https://github.com/ParinLL/raycast-bedrock-scripts
 
 source .venv/bin/activate
-pdm run source/ask-me-anything.py ${1// /%20}
+pdm run source/ask-me-anything.py "${1}"
 deactivate
 
 
