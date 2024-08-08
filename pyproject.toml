@@ -12,5 +12,6 @@ dependencies = [
     "six==1.16.0",
     "urllib3==2.2.1",
     "argparse>=1.4.0",
+    "anthropic[bedrock]>=0.32.0",
 ]
 requires-python = ">=3.12"
