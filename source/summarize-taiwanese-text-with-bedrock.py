@@ -1,6 +1,7 @@
 import argparse
 import boto3
 import json
+import sys
 
 def get_summary(text, model_id="anthropic.claude-3-5-sonnet-20240620-v1:0", max_tokens=4096, temperature=1.0):
     client = boto3.client('bedrock-runtime', region_name='us-west-2')
