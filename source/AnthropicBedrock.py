@@ -4,7 +4,7 @@ from anthropic import AnthropicBedrock
 
 def get_summary_stream(text, model_id="anthropic.claude-3-5-sonnet-20240620-v1:0", max_tokens=4096, temperature=1.0):
     client = AnthropicBedrock(
-        aws_region="us-west-2",
+        aws_region="ap-northeast-1",
     )
     
     with client.messages.create(

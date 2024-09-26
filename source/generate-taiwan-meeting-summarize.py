@@ -4,7 +4,7 @@ import json
 import sys
 
 def get_summary(text, model_id="anthropic.claude-3-5-sonnet-20240620-v1:0", max_tokens=4096, temperature=1.0):
-    client = boto3.client('bedrock-runtime', region_name='us-west-2')
+    client = boto3.client('bedrock-runtime', region_name='ap-northeast-1')
     
     prompt = f"""
     我是 Cloud Support 工程師，請幫我總結以下對話大綱，包含 AWS 資源名稱，並回覆給客戶:
