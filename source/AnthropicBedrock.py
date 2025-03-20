@@ -2,7 +2,7 @@ import argparse
 import sys
 from anthropic import AnthropicBedrock
 
-def get_summary_stream(text, model_id="anthropic.claude-3-5-sonnet-20241022-v2:0", max_tokens=4096, temperature=1.0):
+def get_summary_stream(text, model_id="anthropic.claude-3-7-sonnet-20250219-v1:0", max_tokens=4096, temperature=1.0):
     client = AnthropicBedrock(
         aws_region="us-west-2",
     )
