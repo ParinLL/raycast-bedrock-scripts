@@ -161,3 +161,9 @@ cython_debug/
 #.idea/
 
 .DS_Store
+
+# Kiro IDE
+.kiro/
+
+# Kiro IDE
+.vscode/
