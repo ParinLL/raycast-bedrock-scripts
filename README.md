@@ -1,208 +1,267 @@
 # AWS Bedrock Claude Scripts
 
-這是一組使用 AWS Bedrock Claude 3.5 Sonnet 模型的 Python 腳本工具集，提供多種文字處理功能，包括翻譯、摘要、正式化改寫等。
+A collection of Python scripts utilizing AWS Bedrock Claude Sonnet 4.5 model, providing various text processing capabilities including translation, summarization, and text formalization.
 
-## 功能特色
+## Features
 
-- **問答系統** - 向 Claude AI 提問任何問題
-- **文字正式化** - 將文字改寫為正式且邏輯清晰的版本
-- **會議摘要** - 為 AWS Cloud Support 會議生成摘要
-- **翻譯功能** - 支援英文與繁體中文雙向翻譯
-- **文字摘要** - 以繁體中文生成文字摘要
-- **串流輸出** - 所有功能都支援即時串流回應
+- **Ask Me Anything** - Ask Claude AI any question
+- **Text Formalization** - Rewrite text into formal and logically clear versions
+- **Meeting Summarization** - Generate summaries for meetings
+- **Translation** - Bidirectional translation between English and Traditional Chinese
+- **Text Summarization** - Generate text summaries in Traditional Chinese
+- **Streaming Output** - All features support real-time streaming responses
 
-## 系統需求
+## System Requirements
 
 - Python 3.12
-- AWS 帳號與 Bedrock 存取權限
-- 已設定 AWS 認證（透過 AWS CLI 或環境變數）
+- PDM (Python Development Master) - Python package manager
+- AWS account with Bedrock access permissions
+- Configured AWS credentials (via AWS CLI or environment variables)
 
-## 安裝
+## Installation
 
-1. 克隆此專案：
+### 1. Install PDM
+
+PDM is the recommended package manager for this project. Install it using:
+
+```bash
+# macOS/Linux
+curl -sSL https://pdm-project.org/install-pdm.py | python3 -
+
+# Or using pip
+pip install --user pdm
+
+# Or using Homebrew (macOS)
+brew install pdm
+```
+
+For more installation options, visit: https://pdm-project.org/latest/#installation
+
+### 2. Clone and Setup
+
 ```bash
 git clone <repository-url>
 cd raycast-bedrock-scripts
-```
 
-2. 安裝依賴套件（使用 pdm）：
-```bash
+# Install dependencies using PDM
 pdm install
 ```
 
-或使用 pip：
+### 3. Running Scripts with PDM
+
+Use PDM to run scripts in the managed environment:
+
 ```bash
-pip install -r requirements.txt
+# Run any script using pdm run
+pdm run python source/ask-me-anything.py "Your question"
+
+# Or activate the virtual environment
+eval $(pdm venv activate)
+python source/ask-me-anything.py "Your question"
 ```
 
-## AWS 設定
+## AWS Configuration
 
-確保你的 AWS 認證已正確設定，並且有權限存取 Bedrock 服務。
+Ensure your AWS credentials are properly configured with permissions to access Bedrock services.
 
-查看可用的 Anthropic 模型：
+View available Anthropic models:
 ```bash
 aws bedrock list-foundation-models --region=us-west-2 --by-provider anthropic --query "modelSummaries[*].modelId"
 ```
 
-## 使用方式
+**Default Model**: The scripts use `global.anthropic.claude-sonnet-4-5-20250929-v1:0` (Claude Sonnet 4.5) by default in the `ap-northeast-1` region.
 
-### 1. 問答系統 (Ask Me Anything)
+## Usage
 
-向 Claude AI 提問任何問題：
+**Note**: All commands below can be prefixed with `pdm run` to use the PDM-managed environment:
+```bash
+pdm run python source/script-name.py [arguments]
+```
+
+### 1. Ask Me Anything
+
+Ask Claude AI any question:
 
 ```bash
-# 直接輸入問題
-python source/ask-me-anything.py "What is AWS Lambda?"
+# Direct question input
+pdm run python source/ask-me-anything.py "What is AWS Lambda?"
 
-# 從檔案讀取問題
-python source/ask-me-anything.py -f question.txt
+# Read question from file
+pdm run python source/ask-me-anything.py -f question.txt
 
-# 儲存回應到檔案
-python source/ask-me-anything.py "Explain Docker" -o answer.txt
+# Save response to file
+pdm run python source/ask-me-anything.py "Explain Docker" -o answer.txt
 
-# 使用 shell 腳本
+# Using shell script
 ./ask-me-anything.sh "Your question here"
 ```
 
-### 2. 文字正式化
+### 2. Text Formalization
 
-將文字改寫為正式且邏輯清晰的版本：
+Rewrite text into formal and logically clear versions:
 
 ```bash
-# 直接輸入文字
-python source/formal-text-with-bedrock.py "casual text here"
+# Direct text input
+pdm run python source/formal-text-with-bedrock.py "casual text here"
 
-# 從檔案讀取
-python source/formal-text-with-bedrock.py -f input.txt -o formal.txt
+# Read from file
+pdm run python source/formal-text-with-bedrock.py -f input.txt -o formal.txt
 
-# 使用 shell 腳本
+# Using shell script
 ./formal-text-with-bedrock.sh "text to formalize"
 ```
 
-### 3. 會議摘要生成
+### 3. Meeting Summarization
 
-為 AWS Cloud Support 會議生成摘要：
+Generate summaries for AWS Cloud Support meetings:
 
 ```bash
-# 從檔案讀取會議記錄
-python source/generate-taiwan-meeting-summarize.py -f meeting.txt
+# Read meeting notes from file
+pdm run python source/generate-taiwan-meeting-summarize.py -f meeting.txt
 
-# 儲存摘要
-python source/generate-taiwan-meeting-summarize.py -f meeting.txt -o summary.txt
+# Save summary
+pdm run python source/generate-taiwan-meeting-summarize.py -f meeting.txt -o summary.txt
 
-# 使用 shell 腳本
+# Using shell script
 ./generate-taiwan-meeting-summarize.sh
 ```
 
-### 4. 翻譯功能
+### 4. Translation
 
-#### 翻譯為英文：
+#### Translate to English:
 ```bash
-# 翻譯繁體中文到英文
-python source/translate-article-to-english.py "要翻譯的中文文字"
+# Translate Traditional Chinese to English
+pdm run python source/translate-article-to-english.py "要翻譯的中文文字"
 
-# 從檔案翻譯
-python source/translate-article-to-english.py -f chinese.txt -o english.txt
+# Translate from file
+pdm run python source/translate-article-to-english.py -f chinese.txt -o english.txt
 
-# 使用 shell 腳本
+# Using shell script
 ./translate-article-to-english.sh
 ```
 
-#### 翻譯為繁體中文：
+#### Translate to Traditional Chinese:
 ```bash
-# 翻譯英文到繁體中文
-python source/translate-article-to-taiwannese.py "Text to translate"
+# Translate English to Traditional Chinese
+pdm run python source/translate-article-to-taiwannese.py "Text to translate"
 
-# 從檔案翻譯
-python source/translate-article-to-taiwannese.py -f english.txt -o chinese.txt
+# Translate from file
+pdm run python source/translate-article-to-taiwannese.py -f english.txt -o chinese.txt
 
-# 使用 shell 腳本
+# Using shell script
 ./translate-article-to-taiwannese.sh
 ```
 
-### 5. 文字摘要（繁體中文）
+### 5. Text Summarization (Traditional Chinese)
 
-生成繁體中文摘要：
+Generate Traditional Chinese summaries:
 
 ```bash
-# 直接輸入文字
-python source/summarize-taiwanese-text-with-bedrock.py "長篇文字內容"
+# Direct text input
+pdm run python source/summarize-taiwanese-text-with-bedrock.py "長篇文字內容"
 
-# 從檔案讀取
-python source/summarize-taiwanese-text-with-bedrock.py -f article.txt -o summary.txt
+# Read from file
+pdm run python source/summarize-taiwanese-text-with-bedrock.py -f article.txt -o summary.txt
 
-# 使用 shell 腳本
+# Using shell script
 ./summarize-taiwanese-text-with-bedrock.sh
 ```
 
-## 進階選項
+## Advanced Options
 
-所有腳本都支援以下選項：
+All scripts support the following options:
 
 ```bash
---model MODEL_ID          # 指定使用的模型 ID
---max-tokens N            # 設定回應的最大 token 數（預設：4096）
---temperature T           # 設定生成溫度（預設：1.0）
--f, --file FILE          # 從檔案讀取輸入
--o, --output FILE        # 將輸出儲存到檔案
+--model MODEL_ID          # Specify model ID to use
+--max-tokens N            # Set maximum tokens for response (default: 4096)
+--temperature T           # Set generation temperature (default: 1.0)
+-f, --file FILE          # Read input from file
+-o, --output FILE        # Save output to file
 ```
 
-範例：
+Example:
 ```bash
-python source/ask-me-anything.py \
-  --model anthropic.claude-3-5-sonnet-20241022-v2:0 \
+pdm run python source/ask-me-anything.py \
+  --model global.anthropic.claude-sonnet-4-5-20250929-v1:0 \
   --max-tokens 2048 \
   --temperature 0.7 \
   -f input.txt \
   -o output.txt
 ```
 
-## 專案結構
+## Project Structure
 
 ```
 .
 ├── source/
-│   ├── ask-me-anything.py                      # 問答系統
-│   ├── formal-text-with-bedrock.py            # 文字正式化
-│   ├── generate-taiwan-meeting-summarize.py   # 會議摘要
-│   ├── translate-article-to-english.py        # 翻譯為英文
-│   ├── translate-article-to-taiwannese.py     # 翻譯為繁體中文
-│   ├── summarize-taiwanese-text-with-bedrock.py # 繁體中文摘要
-│   ├── config_manager.py                       # 設定管理
-│   ├── constants.py                            # 常數定義
-│   └── AnthropicBedrock.py                    # Bedrock 客戶端
-├── *.sh                                        # Shell 腳本包裝器
-├── pyproject.toml                              # 專案設定
-└── README.md                                   # 本文件
+│   ├── base_cli.py                             # Base CLI framework (shared logic)
+│   ├── ask-me-anything.py                      # Q&A system
+│   ├── formal-text-with-bedrock.py            # Text formalization
+│   ├── generate-taiwan-meeting-summarize.py   # Meeting summarization
+│   ├── translate-article-to-english.py        # Translate to English
+│   ├── translate-article-to-taiwannese.py     # Translate to Traditional Chinese
+│   ├── summarize-taiwanese-text-with-bedrock.py # Traditional Chinese summarization
+│   ├── AnthropicBedrock.py                    # Generic summarization
+│   ├── config_manager.py                       # Configuration management
+│   ├── constants.py                            # Constants definition
+│   └── test_cli.py                             # Test suite
+├── *.sh                                        # Shell script wrappers
+├── pyproject.toml                              # PDM project configuration
+├── pdm.lock                                    # PDM lock file
+└── README.md                                   # This file
 ```
 
-## 依賴套件
+## Development
+
+### Running Tests
+
+```bash
+pdm run python source/test_cli.py
+```
+
+### Adding New Dependencies
+
+```bash
+pdm add package-name
+```
+
+### Updating Dependencies
+
+```bash
+pdm update
+```
+
+## Dependencies
+
+This project uses PDM for dependency management. All dependencies are defined in `pyproject.toml`:
 
 - `boto3` - AWS SDK for Python
 - `anthropic[bedrock]` - Anthropic Claude SDK with Bedrock support
-- `argparse` - 命令列參數解析
+- `argparse` - Command-line argument parsing
 
-## 注意事項
+PDM automatically manages the virtual environment and ensures consistent dependency versions across all environments.
 
-- 所有腳本都使用串流輸出，可即時看到生成結果
-- 輸入文字必須為 UTF-8 編碼
-- 確保 AWS 認證有足夠權限存取 Bedrock 服務
-- 使用 Bedrock 服務會產生費用，請注意用量
+## Important Notes
 
-## 錯誤處理
+- All scripts use streaming output for real-time response viewing
+- Input text must be UTF-8 encoded
+- Ensure AWS credentials have sufficient permissions to access Bedrock services
+- Using Bedrock services incurs costs - monitor your usage
 
-腳本包含完整的錯誤處理：
-- 檔案不存在檢查
-- UTF-8 編碼驗證
-- 空白輸入驗證
-- 模型 ID 驗證
-- API 錯誤處理
+## Error Handling
 
-## 授權
+Scripts include comprehensive error handling:
+- File existence checks
+- UTF-8 encoding validation
+- Empty input validation
+- Model ID validation
+- API error handling
 
-請參考專案授權文件。
+## License
 
-## 貢獻
+Please refer to the project license documentation.
 
-歡迎提交 Issue 或 Pull Request。
+## Contributing
+
+Issues and Pull Requests are welcome.
 
