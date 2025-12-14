@@ -23,6 +23,7 @@ def test_module_imports():
             'translate-article-to-english',
             'translate-article-to-taiwannese',
             'summarize-taiwanese-text-with-bedrock',
+            'summarize-text-with-bedrock',
             'generate-taiwan-meeting-summarize',
             'AnthropicBedrock'
         ]
@@ -131,7 +132,8 @@ def test_prompt_builders():
         'formal-text-with-bedrock': 'Formal text',
         'translate-article-to-english': 'Translation to English',
         'translate-article-to-taiwannese': 'Translation to Chinese',
-        'summarize-taiwanese-text-with-bedrock': 'Summarization',
+        'summarize-taiwanese-text-with-bedrock': 'Taiwanese summarization',
+        'summarize-text-with-bedrock': 'Text summarization',
         'generate-taiwan-meeting-summarize': 'Meeting summary',
         'ask-me-anything': 'Ask me anything',
         'AnthropicBedrock': 'Generic summarization'
