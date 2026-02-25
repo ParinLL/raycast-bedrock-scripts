@@ -12,14 +12,21 @@ class ConfigManager:
     """Centralized configuration management for Claude model settings."""
     
     # Latest APAC Claude Sonnet 4 model ID
-    DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    # DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-6"
     DEFAULT_REGION = "ap-northeast-1"
     
     # Valid model ID patterns
     VALID_MODEL_PATTERNS = [
         r"anthropic\.claude-3-5-sonnet-\d{8}-v\d+:\d+",
         r"anthropic\.claude-sonnet-4-5-\d{8}-v\d+:\d+",
-        r"global\.anthropic\.claude-sonnet-4-5-\d{8}-v\d+:\d+"
+        r"global\.anthropic\.claude-sonnet-4-5-\d{8}-v\d+:\d+",
+        r"(global\.)?anthropic\.claude-sonnet-4-6$",
+        r"(global\.)?anthropic\.claude-opus-4-6-v\d+$",
+        r"(global\.)?anthropic\.claude-haiku-4-5-\d{8}-v\d+:\d+",
+        r"(global\.)?anthropic\.claude-opus-4-5-\d{8}-v\d+:\d+",
+        r"(global\.)?anthropic\.claude-sonnet-4-\d{8}-v\d+:\d+",
+        r"(global\.)?anthropic\.claude-3-7-sonnet-\d{8}-v\d+:\d+",
     ]
     
     # Valid AWS regions for Claude models
