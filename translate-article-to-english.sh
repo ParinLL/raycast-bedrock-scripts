@@ -17,5 +17,3 @@
 source .venv/bin/activate
 pdm run source/translate-article-to-english.py "${1}"
 deactivate
-
-

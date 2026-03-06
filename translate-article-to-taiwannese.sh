@@ -17,5 +17,3 @@
 source .venv/bin/activate
 pdm run source/translate-article-to-taiwannese.py "${1}"
 deactivate
-
-

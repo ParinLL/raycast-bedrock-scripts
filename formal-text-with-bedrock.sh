@@ -16,4 +16,3 @@
 source .venv/bin/activate
 pdm run source/formal-text-with-bedrock.py "${1}"
 deactivate
-

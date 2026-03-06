@@ -16,5 +16,3 @@
 source .venv/bin/activate
 pdm run source/summarize-taiwanese-text-with-bedrock.py "${1}"
 deactivate
-
-

@@ -16,5 +16,3 @@
 source .venv/bin/activate
 pdm run source/generate-taiwan-meeting-summarize.py "${1}"
 deactivate
-
-

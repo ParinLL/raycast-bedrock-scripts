@@ -16,5 +16,3 @@
 source .venv/bin/activate
 pdm run source/ask-me-anything.py "${1}"
 deactivate
-
-
