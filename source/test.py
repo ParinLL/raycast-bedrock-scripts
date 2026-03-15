@@ -5,7 +5,7 @@ client = AnthropicBedrock(
 )
 
 message = client.messages.create(
-    model="global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    model="global.anthropic.claude-sonnet-4-6",
     max_tokens=256,
     messages=[{"role": "user", "content": "Hello, world"}]
 )

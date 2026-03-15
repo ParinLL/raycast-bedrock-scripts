@@ -128,5 +128,5 @@ export AWS_DEFAULT_REGION=ap-northeast-1
 - Python 3.12 is required (specified in pyproject.toml)
 - All scripts use streaming output for real-time responses
 - Input files must be UTF-8 encoded
-- Model ID defaults to Claude Sonnet 4.5 in ap-northeast-1 region
+- Model ID defaults to Claude Sonnet 4.6 in ap-northeast-1 region
 - Using Bedrock services incurs AWS costs

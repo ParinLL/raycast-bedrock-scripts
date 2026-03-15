@@ -12,7 +12,6 @@ class ConfigManager:
     """Centralized configuration management for Claude model settings."""
     
     # Latest APAC Claude Sonnet 4 model ID
-    # DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-5-20250929-v1:0"
     DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-6"
     DEFAULT_REGION = "ap-northeast-1"
     

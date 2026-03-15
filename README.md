@@ -1,6 +1,6 @@
 # AWS Bedrock Claude Scripts
 
-A collection of Python scripts utilizing AWS Bedrock Claude Sonnet 4.5 model, providing various text processing capabilities including translation, summarization, and text formalization.
+A collection of Python scripts utilizing AWS Bedrock Claude Sonnet 4.6 model, providing various text processing capabilities including translation, summarization, and text formalization.
 
 ## Features
 
@@ -69,7 +69,7 @@ View available Anthropic models:
 aws bedrock list-foundation-models --region=us-west-2 --by-provider anthropic --query "modelSummaries[*].modelId"
 ```
 
-**Default Model**: The scripts use `global.anthropic.claude-sonnet-4-5-20250929-v1:0` (Claude Sonnet 4.5) by default in the `ap-northeast-1` region.
+**Default Model**: The scripts use `global.anthropic.claude-sonnet-4-6` (Claude Sonnet 4.6) by default in the `ap-northeast-1` region.
 
 ## Usage
 
@@ -182,7 +182,7 @@ All scripts support the following options:
 Example:
 ```bash
 pdm run python source/ask-me-anything.py \
-  --model global.anthropic.claude-sonnet-4-5-20250929-v1:0 \
+  --model global.anthropic.claude-sonnet-4-6 \
   --max-tokens 2048 \
   --temperature 0.7 \
   -f input.txt \
