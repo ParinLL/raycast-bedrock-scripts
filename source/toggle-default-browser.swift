@@ -1,18 +1,7 @@
 #!/usr/bin/swift
 
-// Required parameters:
-// @raycast.schemaVersion 1
-// @raycast.title Toggle Default Browser
-// @raycast.mode silent
-
-// Optional parameters:
-// @raycast.icon 🌐
-// @raycast.packageName Browser Tools
-
-// Documentation:
-// @raycast.description Toggle default browser between Brave and Chrome
-// @raycast.author parin
-// @raycast.authorURL https://github.com/parin
+// This file is invoked by toggle-default-browser.sh.
+// Raycast metadata is intentionally kept in the .sh wrapper.
 
 import AppKit
 
