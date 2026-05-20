@@ -7,8 +7,8 @@ import AppKit
 
 // --- Configuration ---
 let browsers: [(name: String, id: String, path: String)] = [
-    ("Brave",  "com.brave.Browser", "/Applications/Brave Browser.app"),
-    ("Chrome", "com.google.Chrome", "/Applications/Google Chrome.app"),
+    ("Brave",   "com.brave.Browser",   "/Applications/Brave Browser.app"),
+    ("Firefox", "org.mozilla.firefox", "/Applications/Firefox.app"),
 ]
 
 // --- Detect current default browser ---
