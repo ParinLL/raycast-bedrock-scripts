@@ -5,8 +5,8 @@ Central location for model IDs, regions, and default parameters.
 """
 
 # Model Configuration
-LATEST_APAC_CLAUDE_SONNET_4 = "anthropic.claude-sonnet-4-6"
-GLOBAL_CLAUDE_SONNET_4 = "global.anthropic.claude-sonnet-4-6"
+LATEST_APAC_CLAUDE_SONNET_5 = "anthropic.claude-sonnet-5"
+GLOBAL_CLAUDE_SONNET_5 = "global.anthropic.claude-sonnet-5"
 
 # Regional Configuration
 APAC_REGION = "ap-northeast-1"

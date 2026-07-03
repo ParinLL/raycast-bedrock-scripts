@@ -11,8 +11,8 @@ import re
 class ConfigManager:
     """Centralized configuration management for Claude model settings."""
     
-    # Latest APAC Claude Sonnet 4 model ID
-    DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-6"
+    # Latest Claude Sonnet 5 model ID
+    DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-5"
     DEFAULT_REGION = "ap-northeast-1"
     
     # Valid model ID patterns
@@ -20,6 +20,7 @@ class ConfigManager:
         r"anthropic\.claude-3-5-sonnet-\d{8}-v\d+:\d+",
         r"anthropic\.claude-sonnet-4-5-\d{8}-v\d+:\d+",
         r"global\.anthropic\.claude-sonnet-4-5-\d{8}-v\d+:\d+",
+        r"(global\.|us\.)?anthropic\.claude-sonnet-5$",
         r"(global\.)?anthropic\.claude-sonnet-4-6$",
         r"(global\.)?anthropic\.claude-opus-4-6-v\d+$",
         r"(global\.)?anthropic\.claude-haiku-4-5-\d{8}-v\d+:\d+",
@@ -39,7 +40,7 @@ class ConfigManager:
         Initialize ConfigManager with optional custom settings.
         
         Args:
-            model_id: Custom model ID to use (defaults to latest APAC Claude Sonnet 4)
+            model_id: Custom model ID to use (defaults to latest Claude Sonnet 5)
             region: AWS region to use (defaults to ap-northeast-1)
         """
         self._model_id = model_id or self.DEFAULT_MODEL_ID
@@ -56,7 +57,7 @@ class ConfigManager:
         return self._model_id
     
     def get_latest_model_id(self) -> str:
-        """Get the latest available APAC Claude Sonnet 4 model ID."""
+        """Get the latest available Claude Sonnet 5 model ID."""
         return self.DEFAULT_MODEL_ID
     
     def get_region(self) -> str:
